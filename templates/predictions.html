@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Predictions</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #45a049;
+        }
+
+        .empty {
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Previous Predictions</h1>
+    </header>
+    <main>
+        {% if predictions and predictions|length > 0 %}
+        <ul>
+            {% for prediction in predictions %}
+            <li>
+                <strong>File:</strong> {{ prediction.filename }} <br>
+                <strong>Genre:</strong> {{ prediction.genre }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty">No predictions have been made yet.</p>
+        {% endif %}
+        <a href="/" class="back-link">Back to Home</a>
+    </main>
+</body>
+</html>
